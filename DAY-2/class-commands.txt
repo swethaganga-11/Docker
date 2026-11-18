@@ -1,0 +1,189 @@
+ 1  clear
+    2  pwd
+    3  docker version
+    4  sudo apt update -y
+    5  clear
+    6  docker version
+    7  sudo apt install docker.io
+    8  clear
+    9  docker version
+   10  docker images
+   11  sudo usermod -aG docker ubuntu
+   12  docker images
+   13  exit
+   14  clear
+   15  docker images
+   16  docker ps -a
+   17  docker info
+   18  clear
+   19  history
+   20  clear
+   21  top
+   22  clear
+   23  clear
+   24  docker
+   25  clear
+   26  docker images
+   27  docker ps -a
+   28  docker version
+   29  clear
+   30  ps -ef|grep -i "docker"
+   31  clear
+   32  docker pull ubuntu:latest
+   33  docker images
+   34  docker pull sonarqube:lts-community
+   35  clear
+   36  docker images
+   37  docker run -d -p 9000:9000 --name sonarcon sonarqube:lts-community
+   38  docker ps -a
+   39  docker run -d -p 8639:9000 --name sonarcon2 sonarqube:lts-community
+   40  docker ps -a
+   41  docker push sonarqube:lts-community
+   42  docker
+   43  clear
+   44  docker images
+   45  docker ps -a
+   46  docker rm -f 66b8dc4664cb 8977773fcaa1
+   47  docker ps -a
+   48  docker rmi -f sonarqube:lts-community ubuntu:latest
+   49  clear
+   50  docker ps -a
+   51  docker images
+   52  docker info
+   53  clear
+   54  docker --version
+   55  docker version
+   56  clear
+   57  git -v
+   58  git clone https://github.com/kkdevopsb11/maven-webapplication-project-kkfunda.git
+   59  clear
+   60  ls -lrth
+   61  cd maven-webapplication-project-kkfunda/
+   62  ls -lrth
+   63  mvn
+   64  sudo apt install maven -y
+   65  clear
+   66  ls -lrtrh
+   67  mvn clean package
+   68  clear
+   69  ls -lrth
+   70  ls -lrth target/
+   71  clear
+   72  vi Dockerfile
+   73  nano Dockerfile
+   74  cat Dockerfile
+   75  clear
+   76  ls -lrth
+   77  pwd
+   78  cat Dockerfile
+   79  docker build -t kkdevopsb11/webapp:1.0 .
+   80  clear
+   81  docker images
+   82  cat Dockerfile
+   83  ls -lrth target/
+   84  docker history tomcat:9.0.100
+   85  docker history kkdevopsb11/webapp:1.0
+   86  clear
+   87  docker images
+   88  docker image ls
+   89  ls
+   90  docker build -t kkdevopsb11/webapp:1.1 .
+   91  docker images
+   92  clear
+   93  docker images
+   94  docker push kkdevopsb11/webapp:1.0
+   95  docker info
+   96  clear
+   97  docker login -u kkdevopsb11 -p
+   98  docker login -u kkdevopsb11
+   99  clear
+  100  docker info
+  101  clear
+  102  docker images
+  103  docker push kkdevopsb11/webapp:1.0
+  104  docker push kkdevopsb11/webapp:1.1
+  105  clear
+  106  docker images
+  107  docker rmi -f kkdevopsb11/webapp:1.0
+  108  docker images
+  109  docker images -a
+  110  docker pull kkdevopsb11/webapp:1.0
+  111  docker images
+  112  clear
+  113  docker info
+  114  docker logout
+  115  docker info
+  116  clear
+  117  docker pull kkdevopsb11/webapp:1.0
+  118  docker push kkdevopsb11/webapp:1.1
+  119
+  120  docker build -t kkdevopsb11/webapp:1.2 .
+  121  docker push kkdevopsb11/webapp:1.2
+  122  clear
+  123  docker images
+  124  docker inspect kkdevopsb11/webapp:1.0
+  125  clear
+  126  cat Dockerfile
+  127  docker images
+  128  docker rmi kkdevopsb11/webapp:1.0
+  129  docker images
+  130  docker pull ubuntu
+  131  docker pull jenkins/jenkins
+  132  clear
+  133  docker images
+  134  docker images -aq
+  135  docker rmi $(docker images -aq)
+  136  clear
+  137  docker images
+  138  docker rmi $(docker images -aq)
+  139  docker rmi -f $(docker images -aq)
+  140  docker images
+  141  clear
+  142  docker images
+  143  ls
+  144  docker build -t kkdevopsb11/webapp:1.3 .
+  145  clear
+  146  docker images
+  147  docker run -d -p 8080:8080 --name web1 kkdevopsb11/webapp:1.3
+  148  docker ps -a
+  149  docker run -d -p 9000:8080 --name web1 kkdevopsb11/webapp:1.3
+  150  docker run -d -p 9000:8080 --name web3 kkdevopsb11/webapp:1.3
+  151  clear
+  152  docker ps -a
+  153  docker rm d14d1fa27742
+  154  docker rm -f d14d1fa27742
+  155  docker images
+  156  docker ps -a
+  157  docker rmi kkdevopsb11/webapp:1.3
+  158  docker rmi -f kkdevopsb11/webapp:1.3
+  159  docker images
+  160  docker images -a
+  161  docker images -f dangling=true
+  162  docker images -f dangling=false
+  163  docker rm -f web3
+  164  clear
+  165  docker ps -a
+  166  docker images -a
+  167  docker image prune
+  168  docker images -a
+  169  docker info
+  170  clear
+  171  docker login -u kkdevopsb11
+  172  docker images
+  173  docker push tomcat:9.0.100
+  174  docker tag kkdevopsb11/tomcat:9.0.100 tomcat:9.0.100
+  175  docker tag tomcat:9.0.100 kkdevopsb11/tomcat:9.0.100
+  176  docker images
+  177  docker push kkdevopsb11/tomcat:9.0.100
+  178  clear
+  179  docker images
+  180  docker save -o tomcat.tar tomcat:9.0.100
+  181  docker images
+  182  ls -lrth
+  183  docker rmi -f tomcat:9.0.100
+  184  docker images
+  185  ls -lrth
+  186  docker load -i tomcat.tar
+  187  docker images
+  188  clear
+  189  history
