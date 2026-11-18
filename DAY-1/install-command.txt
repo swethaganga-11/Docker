@@ -1,0 +1,19 @@
+ 1  clear
+    2  pwd
+    3  docker version
+    4  sudo apt update -y
+    5  clear
+    6  docker version
+    7  sudo apt install docker.io
+    8  clear
+    9  docker version
+   10  docker images
+   11  sudo usermod -aG docker ubuntu
+   12  docker images
+   13  exit
+   14  clear
+   15  docker images
+   16  docker ps -a
+   17  docker info
+   18  clear
+   19  history
