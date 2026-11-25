@@ -44,6 +44,42 @@ FROM openjdk:11-jdk
 WORKDIR /app
 COPY target/maven-standalone-application*.jar maven-standalone-application.jar 
 CMD ["java","-jar","maven-standalone-application.jar"]
+steps:
+ git clone https://github.com/kkdevopsb11/standalone-app-kkfunda.git
+  327  ls -lrth
+  328  mvn clean package
+  329  clear
+  330  cd standalone-app-kkfunda/
+  331  la -lrth
+  332  mvn clean package
+  333  ls -lrth
+  334  mkdir app
+  335  cp target/app
+  336  cp target
+  337  cd mkdir
+  338  cd app
+  339  cp target
+  340  pwd
+  341  cd ..
+  342  pwd
+  343  cp /home/ubuntu/standalone-app-kkfunda
+  344  cp /home/ubuntu/standalone-app-kkfunda/target /home/ubuntu/standalone-app-kkfunda/app/
+  345  cp -r /home/ubuntu/standalone-app-kkfunda/target /home/ubuntu/standalone-app-kkfunda/app/
+  346  cd app
+  347  ls -lrth
+  348  vi dockerfile2
+  349  nano dockerfile2
+  350  docker build -t image1 -f dockerfile2 .
+  351  nano dockerfile2
+  352  docker build -t image2 -f dockerfile2 .
+  353  docker images
+  354  docker  run -d -p 8080:8080 --name webapp image1
+  355  docker ps -a
+  356  docker exec -it baee768d3225  sh
+  357  tree
+  358  sudo apt install tree
+  359  tree
+  360  java -jar target/maven-standalone-application-0.0.1-SNAPSHOT.jar
 
 
 
