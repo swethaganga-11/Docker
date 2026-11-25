@@ -1,0 +1,63 @@
+pipeline {
+    agent any
+
+    tools {
+        maven 'maven-3.9.6' // This should match the Maven name in Jenkins Global Tool Configuration
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'master', 
+                    url: 'https://github.com/kkdevopsb11/maven-webapplication-project-kkfunda.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                sh 'mvn clean package'
+            }
+        }
+         stage('SonarQube') {
+            steps {
+                withSonarQubeEnv('sonar') {
+                    sh """
+                    mvn sonar:sonar \
+                        -Dsonar.projectKey=maven-webapp \
+                        -Dsonar.projectName='maven-webapp' \
+                    """
+                }
+            }
+        }
+
+         stage('Build & Tag Docker Image') {
+            steps {
+                script {
+                    withDockerRegistry(credentialsId: 'docker') {
+                        sh 'docker build -t kkdevopsb11/webapp:9.1 .'
+                    }
+                }
+            }
+        }
+
+        stage('Push Docker Image') {
+            steps {
+                script {
+                    withDockerRegistry(credentialsId: 'docker') {
+                        sh 'docker push kkdevopsb11/webapp:9.1'
+                    }
+                }
+            }
+        }
+        stage('Deploy App/start') {
+            steps {
+                script {
+                    withDockerRegistry(credentialsId: 'docker') {
+                        sh 'docker run -d -p 8082:8080 --name webone kkdevopsb11/webapp:9.1'
+                    }
+                }
+            }
+        }
+
+    }
+}
