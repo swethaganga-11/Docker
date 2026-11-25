@@ -1,0 +1,33 @@
+1). alphine images commands:
+  mkdir dockerfiles
+  330  ls -lrth
+  331  cd dockerfiles
+  332  ls -lrth
+  333  clear
+  334  vi dockerfile1
+  335  nano nginxfile1
+  336  docker build -t image1 -f nginxfile1 .
+  337  ls -lrth
+  338  vi index.html
+  339  nano index.html
+  340  ls -lrth
+  341  docker build -t image1 -f nginxfile1 .
+  342  docker run -d -p 80:80 --name conone image1
+  343  ls -lrth
+  344  clear
+  345  docker images
+  346  docker ps -a
+  347  docker exec -it 1dbecc3197de   bash
+  348  docker exec -it 1dbecc3197de sh
+2).Dont copy/add unnecessary files or folders which are not required , size of  image will increase if you are not interested to copy files or folders, then keep those in .dockerignore
+  vi .dockerignore
+  361  docker build -t image3 -f nginxfile1
+  363  docker  run -d -p 82:80 --name web1 image3
+  364  ls -lrth
+  365  docker ps -a
+  366  docker exec -it 676d41d735e3  sh
+  367  ls -lrth
+  368  ls -lrtha
+  3.try to run container as a non-rootuser
+
+
